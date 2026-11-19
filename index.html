@@ -6,7 +6,7 @@
 <title>Consignado CLT com desconto em folha | Povoas Promotora</title>
 <meta name="description" content="Crédito consignado para quem trabalha de carteira assinada. Parcela descontada direto na folha e juros menores. Simule pelo WhatsApp.">
 <link rel="canonical" href="https://povoaspromotora.com.br/">
-<meta name="theme-color" content="#003E36">
+<meta name="theme-color" content="#120728">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -31,9 +31,9 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <symbol id="pv-mark" viewBox="0 0 100 112">
-      <path d="M52 0H64A34 34 0 0 1 64 68H52Z" fill="#43FFB3"/>
-      <path d="M0 56V28A28 28 0 0 1 28 0H50V28A28 28 0 0 1 22 56Z" style="fill:var(--leaf, #003E36)"/>
-      <path d="M0 112V88A28 28 0 0 1 28 60H50V84A28 28 0 0 1 22 112Z" style="fill:var(--leaf, #003E36)"/>
+      <path d="M52 0H64A34 34 0 0 1 64 68H52Z" fill="#b48cff"/>
+      <path d="M0 56V28A28 28 0 0 1 28 0H50V28A28 28 0 0 1 22 56Z" style="fill:var(--leaf, #5a22d6)"/>
+      <path d="M0 112V88A28 28 0 0 1 28 60H50V84A28 28 0 0 1 22 112Z" style="fill:var(--leaf, #5a22d6)"/>
     </symbol>
   </defs>
 </svg>
@@ -46,9 +46,9 @@
     </a>
     <nav aria-label="Principal" class="hidden md:block">
       <ul class="flex items-center gap-9">
-        <li><a href="#como-funciona" class="rotulo text-[#cfe2dc] transition-colors hover:text-white">Como funciona</a></li>
-        <li><a href="#beneficios" class="rotulo text-[#cfe2dc] transition-colors hover:text-white">Benefícios</a></li>
-        <li><a href="#duvidas" class="rotulo text-[#cfe2dc] transition-colors hover:text-white">Dúvidas</a></li>
+        <li><a href="#como-funciona" class="rotulo text-[#ddd3f5] transition-colors hover:text-white">Como funciona</a></li>
+        <li><a href="#beneficios" class="rotulo text-[#ddd3f5] transition-colors hover:text-white">Benefícios</a></li>
+        <li><a href="#duvidas" class="rotulo text-[#ddd3f5] transition-colors hover:text-white">Dúvidas</a></li>
       </ul>
     </nav>
     <a href="https://wa.me/554830354419?text=Oi!%20Quero%20simular%20um%20consignado%20CLT." target="_blank" rel="noopener" class="botao botao-contorno min-h-[44px] px-5 text-sm">Simular agora</a>
@@ -58,13 +58,14 @@
 
 <main>
 <!--
-  Topo com cena guiada pela rolagem.
-  Desktop: a seção tem 240vh e o palco fica preso (sticky) enquanto a cena avança.
-  Celular: sem prender a tela; a cena avança conforme ela passa pela tela.
-  Com "reduzir movimento" ligado, não prende e a cena fica parada no quadro final.
+  Topo com cena animada: a sequência toca sozinha ao abrir a página
+  e de novo sempre que o topo volta a aparecer na tela.
+  Com "reduzir movimento" ligado, a cena já abre no quadro final.
 -->
-<section id="topo" data-topo class="fundo-topo relative bg-noite text-white motion-safe:lg:h-[240vh]">
-  <div class="palco relative isolate flex flex-col overflow-hidden pb-36 md:pb-44 lg:min-h-[max(100vh,860px)] lg:pb-[150px] motion-safe:lg:sticky motion-safe:lg:top-[min(0px,calc(100vh_-_860px))]">
+<section id="topo" data-topo class="fundo-topo relative bg-noite text-white">
+  <div class="palco relative isolate flex flex-col overflow-hidden pb-36 md:pb-44 lg:min-h-[max(100vh,860px)] lg:pb-[150px]">
+    <canvas class="aurora pointer-events-none absolute inset-0 -z-10 h-full w-full" data-aurora aria-hidden="true"></canvas>
+
     <div class="video-caixa pointer-events-none relative order-2 mt-4 h-[440px] sm:h-[480px] lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:h-auto lg:w-[74%]">
       <div class="cena" data-cena role="img" aria-label="Celular recebe a notificação da Povoas Promotora de que o crédito caiu na conta">
         <div class="cena-fundo"></div>
@@ -73,9 +74,7 @@
         <span class="faisca" style="left:86%;top:64%;animation-delay:.6s"></span>
         <span class="faisca" style="left:30%;top:72%;animation-delay:1.7s"></span>
         <div class="cena-palco">
-          <div class="cena-feixe"></div>
-          <div class="cena-anel"></div>
-          <div class="cena-anel dois"></div>
+          <div class="flutua">
           <div class="celular">
             <div class="tela">
               <div class="tela-topo">
@@ -98,6 +97,7 @@
             <svg viewBox="0 0 100 112" aria-hidden="true" style="--leaf:#fff"><use href="#pv-mark"/></svg>
             <span><b>Povoas Promotora</b><small>O seu crédito caiu na conta.</small></span>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -106,8 +106,8 @@
     <div class="relative order-1 mx-auto w-full max-w-[1200px] px-5 pt-32 md:px-8 md:pt-40 lg:pt-[128px]">
       <div class="max-w-[620px] lg:max-w-[540px] xl:max-w-[620px]">
         <span class="pilula pilula-escura rotulo entrada">Consignado CLT</span>
-        <h1 class="titulo-1 mt-6 text-[#f2f7f5]"><span class="gs" aria-label="O crédito certo para quem trabalha de carteira assinada." role="text"><span><span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:150ms">O</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:178ms">c</span><span class="gs-char" style="animation-delay:206ms">r</span><span class="gs-char" style="animation-delay:234ms">é</span><span class="gs-char" style="animation-delay:262ms">d</span><span class="gs-char" style="animation-delay:290ms">i</span><span class="gs-char" style="animation-delay:318ms">t</span><span class="gs-char" style="animation-delay:346ms">o</span></span> </span><span class="text-verde"><span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:374ms">c</span><span class="gs-char" style="animation-delay:402ms">e</span><span class="gs-char" style="animation-delay:430ms">r</span><span class="gs-char" style="animation-delay:458ms">t</span><span class="gs-char" style="animation-delay:486ms">o</span></span></span><span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:514ms">p</span><span class="gs-char" style="animation-delay:542ms">a</span><span class="gs-char" style="animation-delay:570ms">r</span><span class="gs-char" style="animation-delay:598ms">a</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:626ms">q</span><span class="gs-char" style="animation-delay:654ms">u</span><span class="gs-char" style="animation-delay:682ms">e</span><span class="gs-char" style="animation-delay:710ms">m</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:738ms">t</span><span class="gs-char" style="animation-delay:766ms">r</span><span class="gs-char" style="animation-delay:794ms">a</span><span class="gs-char" style="animation-delay:822ms">b</span><span class="gs-char" style="animation-delay:850ms">a</span><span class="gs-char" style="animation-delay:878ms">l</span><span class="gs-char" style="animation-delay:906ms">h</span><span class="gs-char" style="animation-delay:934ms">a</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:962ms">d</span><span class="gs-char" style="animation-delay:990ms">e</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:1018ms">c</span><span class="gs-char" style="animation-delay:1046ms">a</span><span class="gs-char" style="animation-delay:1074ms">r</span><span class="gs-char" style="animation-delay:1102ms">t</span><span class="gs-char" style="animation-delay:1130ms">e</span><span class="gs-char" style="animation-delay:1158ms">i</span><span class="gs-char" style="animation-delay:1186ms">r</span><span class="gs-char" style="animation-delay:1214ms">a</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:1242ms">a</span><span class="gs-char" style="animation-delay:1270ms">s</span><span class="gs-char" style="animation-delay:1298ms">s</span><span class="gs-char" style="animation-delay:1326ms">i</span><span class="gs-char" style="animation-delay:1354ms">n</span><span class="gs-char" style="animation-delay:1382ms">a</span><span class="gs-char" style="animation-delay:1410ms">d</span><span class="gs-char" style="animation-delay:1438ms">a</span><span class="gs-char" style="animation-delay:1466ms">.</span></span></span></span></h1>
-        <p class="entrada mt-6 max-w-[500px] text-[1.075rem] leading-relaxed text-[#c4dbd4]" style="--atraso:1100ms">A parcela sai direto da folha de pagamento e os juros ficam bem abaixo dos do empréstimo pessoal comum. Você simula pelo WhatsApp e não precisa sair de casa.</p>
+        <h1 class="titulo-1 mt-6 text-[#f6f3ff]"><span class="gs" aria-label="O crédito certo para quem trabalha de carteira assinada." role="text"><span><span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:150ms">O</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:178ms">c</span><span class="gs-char" style="animation-delay:206ms">r</span><span class="gs-char" style="animation-delay:234ms">é</span><span class="gs-char" style="animation-delay:262ms">d</span><span class="gs-char" style="animation-delay:290ms">i</span><span class="gs-char" style="animation-delay:318ms">t</span><span class="gs-char" style="animation-delay:346ms">o</span></span> </span><span class="text-verde"><span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:374ms">c</span><span class="gs-char" style="animation-delay:402ms">e</span><span class="gs-char" style="animation-delay:430ms">r</span><span class="gs-char" style="animation-delay:458ms">t</span><span class="gs-char" style="animation-delay:486ms">o</span></span></span><span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:514ms">p</span><span class="gs-char" style="animation-delay:542ms">a</span><span class="gs-char" style="animation-delay:570ms">r</span><span class="gs-char" style="animation-delay:598ms">a</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:626ms">q</span><span class="gs-char" style="animation-delay:654ms">u</span><span class="gs-char" style="animation-delay:682ms">e</span><span class="gs-char" style="animation-delay:710ms">m</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:738ms">t</span><span class="gs-char" style="animation-delay:766ms">r</span><span class="gs-char" style="animation-delay:794ms">a</span><span class="gs-char" style="animation-delay:822ms">b</span><span class="gs-char" style="animation-delay:850ms">a</span><span class="gs-char" style="animation-delay:878ms">l</span><span class="gs-char" style="animation-delay:906ms">h</span><span class="gs-char" style="animation-delay:934ms">a</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:962ms">d</span><span class="gs-char" style="animation-delay:990ms">e</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:1018ms">c</span><span class="gs-char" style="animation-delay:1046ms">a</span><span class="gs-char" style="animation-delay:1074ms">r</span><span class="gs-char" style="animation-delay:1102ms">t</span><span class="gs-char" style="animation-delay:1130ms">e</span><span class="gs-char" style="animation-delay:1158ms">i</span><span class="gs-char" style="animation-delay:1186ms">r</span><span class="gs-char" style="animation-delay:1214ms">a</span></span> <span class="gs-palavra" aria-hidden="true"><span class="gs-char" style="animation-delay:1242ms">a</span><span class="gs-char" style="animation-delay:1270ms">s</span><span class="gs-char" style="animation-delay:1298ms">s</span><span class="gs-char" style="animation-delay:1326ms">i</span><span class="gs-char" style="animation-delay:1354ms">n</span><span class="gs-char" style="animation-delay:1382ms">a</span><span class="gs-char" style="animation-delay:1410ms">d</span><span class="gs-char" style="animation-delay:1438ms">a</span><span class="gs-char" style="animation-delay:1466ms">.</span></span></span></span></h1>
+        <p class="entrada mt-6 max-w-[500px] text-[1.075rem] leading-relaxed text-[#d2c7ee]" style="--atraso:1100ms">A parcela sai direto da folha de pagamento e os juros ficam bem abaixo dos do empréstimo pessoal comum. Você simula pelo WhatsApp e não precisa sair de casa.</p>
         <div class="entrada mt-9 flex flex-wrap gap-3" style="--atraso:1250ms">
           <a href="https://wa.me/554830354419?text=Oi!%20Quero%20simular%20um%20consignado%20CLT." target="_blank" rel="noopener" class="botao botao-verde">Simular no WhatsApp <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           <a href="#como-funciona" class="botao botao-contorno">Como funciona</a>
@@ -119,28 +119,47 @@
       <div class="vidro flutuar rounded-[20px] p-5">
         <div class="flex items-center gap-3">
           <span class="grid h-9 w-9 place-items-center rounded-full bg-verde text-noite"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <span class="rotulo text-[#d3f5e8]">Parcela de outubro</span>
+          <span class="rotulo text-[#e6dcff]">Parcela de outubro</span>
         </div>
         <p class="mt-4 text-[1.35rem] leading-tight tracking-tight text-white">Descontada direto na folha</p>
-        <p class="mt-1 text-sm text-[#b3cfc8]">Sem boleto pra lembrar</p>
+        <p class="mt-1 text-sm text-[#c2b6e6]">Sem boleto pra lembrar</p>
       </div>
     </div>
 
-    <div class="dica-rolar pointer-events-none absolute bottom-[290px] left-8 hidden flex-col items-center gap-4 text-[#a9c7bf] xl:flex" aria-hidden="true">
+    <div class="dica-rolar pointer-events-none absolute bottom-[290px] left-8 hidden flex-col items-center gap-4 text-[#bdb0e3] xl:flex" aria-hidden="true">
       <span class="rotulo [writing-mode:vertical-rl] rotate-180">Role a tela</span>
       <span class="grid h-9 w-9 place-items-center rounded-full border border-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
     </div>
 
     <div class="relative order-3 mx-auto mt-10 w-full max-w-[1200px] px-5 md:px-8 lg:mt-auto lg:pt-14">
       <ul class="grid gap-px overflow-hidden rounded-[20px] border border-white/10 bg-white/10 sm:grid-cols-3">
-        <li class="entrada flex items-center gap-4 bg-noite/90 px-6 py-5" style="--atraso:1400ms"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-verde" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><p class="font-medium text-white">Seguro</p><p class="text-sm text-[#b3cfc8]">Contrato com banco autorizado</p></div></li>
-        <li class="entrada flex items-center gap-4 bg-noite/90 px-6 py-5" style="--atraso:1520ms"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-verde" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></svg><div><p class="font-medium text-white">Rápido</p><p class="text-sm text-[#b3cfc8]">Simulação na hora, pelo WhatsApp</p></div></li>
-        <li class="entrada flex items-center gap-4 bg-noite/90 px-6 py-5" style="--atraso:1640ms"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-verde" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg><div><p class="font-medium text-white">100% online</p><p class="text-sm text-[#b3cfc8]">Sem agência e sem papelada</p></div></li>
+        <li class="entrada flex items-center gap-4 bg-noite/90 px-6 py-5" style="--atraso:1400ms"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-verde" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><p class="font-medium text-white">Seguro</p><p class="text-sm text-[#c2b6e6]">Contrato com banco autorizado</p></div></li>
+        <li class="entrada flex items-center gap-4 bg-noite/90 px-6 py-5" style="--atraso:1520ms"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-verde" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></svg><div><p class="font-medium text-white">Rápido</p><p class="text-sm text-[#c2b6e6]">Simulação na hora, pelo WhatsApp</p></div></li>
+        <li class="entrada flex items-center gap-4 bg-noite/90 px-6 py-5" style="--atraso:1640ms"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="flex-none text-verde" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg><div><p class="font-medium text-white">100% online</p><p class="text-sm text-[#c2b6e6]">Sem agência e sem papelada</p></div></li>
       </ul>
     </div>
   </div>
 </section>
-<script type="module">var e=document.querySelector(`[data-topo]`),t=e.querySelector(`.video-caixa`),n=e.querySelector(`[data-cena]`),s0=n.querySelector(`[data-saldo]`),r=matchMedia(`(min-width: 1024px)`),i=matchMedia(`(prefers-reduced-motion: reduce)`),o=0,s=0,c=!1,l=e=>Math.min(1,Math.max(0,e)),fm=v=>`R$ `+v.toLocaleString(`pt-BR`,{minimumFractionDigits:2,maximumFractionDigits:2});function u(){if(r.matches){let t=e.offsetHeight-innerHeight;return t>0?l(-e.getBoundingClientRect().top/t):0}let n=t.getBoundingClientRect().bottom+scrollY-innerHeight*.4;return n>0?l(scrollY/n):1}function pinta(p){n.style.setProperty(`--p`,p.toFixed(4));s0.textContent=fm(Math.round(5e3*l((p-.4)/.4)))}function d(){s+=(o-s)*.14,Math.abs(o-s)<.002&&(s=o),pinta(s),s!==o?requestAnimationFrame(d):c=!1}function f(){let t=u();e.classList.toggle(`fim`,t>.7),e.classList.toggle(`rolou`,t>.04),i.matches||(o=t,c||(c=!0,requestAnimationFrame(d)))}i.matches?(pinta(1),e.classList.add(`fim`)):f(),addEventListener(`scroll`,f,{passive:!0}),addEventListener(`resize`,f);</script>
+<script type="module">{const c=document.querySelector(`[data-aurora]`),gl=c&&c.getContext(`webgl`,{premultipliedAlpha:!1,antialias:!1});if(gl){const vs=`attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`,fs=`precision mediump float;uniform vec2 r;uniform float t;
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;for(int k=0;k<4;k++){v+=a*n(p);p*=2.03;a*=.5;}return v;}
+void main(){vec2 uv=gl_FragCoord.xy/r;float ar=r.x/r.y;vec2 q=vec2(uv.x*ar,uv.y);
+float w=fbm(q*1.4+vec2(t*.05,-t*.03));
+float curva=.18+.62*uv.x*uv.x*.9+.10*sin(uv.x*3.1+t*.22)+.12*(w-.5);
+float d=uv.y-curva;
+float largura=.06+.20*uv.x;
+float faixa=exp(-d*d/(largura*largura));
+float d2=uv.y-(curva-.22-.05*sin(uv.x*2.+t*.17));
+float faixa2=exp(-d2*d2/(.03+.05*uv.x))*.45;
+float brilho=(faixa*(.35+.9*uv.x)+faixa2)*(.75+.5*w);
+vec3 base=mix(vec3(.05,.02,.10),vec3(.08,.035,.16),uv.y*.6);
+vec3 verde=vec3(.30,.12,.72);vec3 menta=vec3(.71,.55,1.);
+vec3 col=base+verde*brilho*1.05+menta*pow(brilho,2.6)*.42;
+col+=menta*.05*exp(-length((uv-vec2(1.,.15))*vec2(1.4,1.))*3.);
+col*=1.-.35*length(uv-vec2(.45,.5));
+gl_FragColor=vec4(col,1.);}`,mk=(y,s)=>{const o=gl.createShader(y);gl.shaderSource(o,s);gl.compileShader(o);return o},pr=gl.createProgram();gl.attachShader(pr,mk(gl.VERTEX_SHADER,vs));gl.attachShader(pr,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);gl.useProgram(pr);const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);const lp=gl.getAttribLocation(pr,`p`);gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,!1,0,0);const ur=gl.getUniformLocation(pr,`r`),ut=gl.getUniformLocation(pr,`t`),rm=matchMedia(`(prefers-reduced-motion: reduce)`);let vis=!0,id=0,t0=performance.now();const tam=()=>{const k=Math.min(devicePixelRatio,1.5)*.6;c.width=Math.max(1,c.clientWidth*k|0);c.height=Math.max(1,c.clientHeight*k|0);gl.viewport(0,0,c.width,c.height);gl.uniform2f(ur,c.width,c.height)},des=a=>{gl.uniform1f(ut,rm.matches?6:(a-t0)/1e3);gl.drawArrays(gl.TRIANGLES,0,3);!rm.matches&&vis&&(id=requestAnimationFrame(des))};tam();addEventListener(`resize`,()=>{tam();rm.matches&&des(0)});new IntersectionObserver(([x])=>{vis=x.isIntersecting;cancelAnimationFrame(id);vis&&(id=requestAnimationFrame(des))}).observe(c);des(performance.now());c.classList.add(`ativo`)}}</script>
+<script type="module">var e=document.querySelector(`[data-topo]`),n=e.querySelector(`[data-cena]`),sd=n.querySelector(`[data-saldo]`),rm=matchMedia(`(prefers-reduced-motion: reduce)`),l=v=>Math.min(1,Math.max(0,v)),fm=v=>`R$ `+v.toLocaleString(`pt-BR`,{minimumFractionDigits:2,maximumFractionDigits:2}),ease=x=>1-Math.pow(1-x,3),raf=0,DUR=2600;function pinta(p){n.style.setProperty(`--p`,p.toFixed(4));sd.textContent=fm(Math.round(5e3*ease(l((p-.3)/.45))));e.classList.toggle(`fim`,p>.82)}function toca(atraso){cancelAnimationFrame(raf);pinta(0);let t0=performance.now()+atraso;const f=a=>{let x=l((a-t0)/DUR);pinta(x);x<1&&(raf=requestAnimationFrame(f))};raf=requestAnimationFrame(f)}if(rm.matches)pinta(1);else{pinta(0);let fora=!0;new IntersectionObserver(([x])=>{x.isIntersecting?fora&&(fora=!1,toca(performance.now()<2e3?1300:250)):fora=!0},{threshold:.35}).observe(n.querySelector(`.celular`))}addEventListener(`scroll`,()=>e.classList.toggle(`rolou`,scrollY>40),{passive:!0});</script>
 
 <section id="simular" class="relative z-10 -mt-24 px-5 md:-mt-28 md:px-8">
   <div class="card mx-auto grid max-w-[1000px] gap-8 p-6 sm:p-10 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-12" data-revelar>
@@ -153,7 +172,7 @@
       <label for="valor" class="rotulo text-tinta">Valor que você quer</label>
       <div class="flex items-center rounded-2xl border border-linha bg-papel px-5 focus-within:border-verde-escuro">
         <span class="text-xl text-cinza">R$</span>
-        <input id="valor" name="valor" inputmode="numeric" autocomplete="off" placeholder="5.000" class="h-16 w-full bg-transparent px-3 text-[1.75rem] tracking-tight text-tinta outline-none placeholder:text-[#9db0ab]">
+        <input id="valor" name="valor" inputmode="numeric" autocomplete="off" placeholder="5.000" class="h-16 w-full bg-transparent px-3 text-[1.75rem] tracking-tight text-tinta outline-none placeholder:text-[#a49cbd]">
       </div>
       <div class="flex flex-wrap gap-2" role="group" aria-label="Valores sugeridos">
         <button type="button" data-sugestao="2000" class="min-h-[44px] rounded-full border border-linha px-4 text-sm text-tinta transition-colors hover:border-verde-escuro">R$ 2.000</button>
@@ -162,7 +181,7 @@
         <button type="button" data-sugestao="20000" class="min-h-[44px] rounded-full border border-linha px-4 text-sm text-tinta transition-colors hover:border-verde-escuro">R$ 20.000</button>
       </div>
       <button type="submit" class="botao botao-verde mt-2 w-full">Simular no WhatsApp <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
-      <p class="text-center text-xs text-[#5a6e6a]">Simular não custa nada e não te obriga a contratar.</p>
+      <p class="text-center text-xs text-[#665f7d]">Simular não custa nada e não te obriga a contratar.</p>
     </form>
   </div>
 </section>
@@ -177,16 +196,16 @@
       <p class="mt-4 max-w-[520px] text-[1.05rem] leading-relaxed">A análise parte do seu registro de trabalho no eSocial; você não precisa juntar papelada nem ir até uma agência.</p>
     </div>
     <div class="relative" data-revelar="150">
-      <div class="absolute -inset-6 -z-10 rounded-[40px] bg-[radial-gradient(60%_60%_at_60%_40%,rgb(67_255_179/0.22),transparent_70%)]" aria-hidden="true"></div>
+      <div class="absolute -inset-6 -z-10 rounded-[40px] bg-[radial-gradient(60%_60%_at_60%_40%,rgb(180_140_255/0.22),transparent_70%)]" aria-hidden="true"></div>
       <figure class="card mx-auto max-w-[460px] p-7 sm:p-8">
         <div class="flex items-center justify-between"><p class="rotulo text-tinta">Contracheque</p><p class="text-sm">Outubro</p></div>
         <dl class="mt-6 divide-y divide-linha text-[0.95rem]">
           <div class="flex justify-between py-3"><dt>Salário</dt><dd class="text-tinta">R$ 3.200,00</dd></div>
           <div class="flex justify-between py-3"><dt>INSS</dt><dd class="text-tinta">− R$ 277,00</dd></div>
-          <div class="-mx-3 flex items-center justify-between rounded-xl bg-[#dcf8ec] px-3 py-3"><dt class="flex items-center gap-2 text-tinta"><span class="h-2 w-2 rounded-full bg-verde-escuro"></span>Consignado · parcela 4 de 24</dt><dd class="font-medium text-tinta">− R$ 310,00</dd></div>
+          <div class="-mx-3 flex items-center justify-between rounded-xl bg-[#ede4ff] px-3 py-3"><dt class="flex items-center gap-2 text-tinta"><span class="h-2 w-2 rounded-full bg-verde-escuro"></span>Consignado · parcela 4 de 24</dt><dd class="font-medium text-tinta">− R$ 310,00</dd></div>
           <div class="flex justify-between pt-4"><dt class="text-tinta">Você recebe</dt><dd class="text-xl tracking-tight text-tinta">R$ 2.613,00</dd></div>
         </dl>
-        <figcaption class="mt-6 text-xs text-[#5a6e6a]">Exemplo ilustrativo. Os valores do seu caso saem na simulação.</figcaption>
+        <figcaption class="mt-6 text-xs text-[#665f7d]">Exemplo ilustrativo. Os valores do seu caso saem na simulação.</figcaption>
       </figure>
     </div>
   </div>
@@ -229,17 +248,17 @@
 <section id="saber" class="bg-white px-5 py-[72px] md:px-8 md:py-[120px]">
   <div class="mx-auto grid max-w-[1200px] items-center gap-14 lg:grid-cols-2 lg:gap-20">
     <div class="relative order-2 lg:order-1" data-revelar>
-      <div class="absolute -inset-6 -z-10 rounded-[40px] bg-[radial-gradient(60%_60%_at_40%_50%,rgb(67_255_179/0.2),transparent_70%)]" aria-hidden="true"></div>
+      <div class="absolute -inset-6 -z-10 rounded-[40px] bg-[radial-gradient(60%_60%_at_40%_50%,rgb(180_140_255/0.2),transparent_70%)]" aria-hidden="true"></div>
       <figure class="fundo-gradiente relative mx-auto max-w-[440px] overflow-hidden rounded-[28px] bg-noite p-8 text-white sm:p-10">
         <div class="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-verde/25 blur-3xl" aria-hidden="true"></div>
-        <p class="rotulo relative text-[#b3cfc8]">Sua margem consignável</p>
+        <p class="rotulo relative text-[#c2b6e6]">Sua margem consignável</p>
         <p class="relative mt-4 text-[4rem] leading-none tracking-tight">35<span class="text-verde">%</span></p>
-        <p class="relative mt-2 text-[#c4dbd4]">da sua renda mensal, no máximo</p>
+        <p class="relative mt-2 text-[#d2c7ee]">da sua renda mensal, no máximo</p>
         <div class="relative mt-10">
           <div class="flex h-3 overflow-hidden rounded-full bg-white/10"><span class="barra h-full rounded-full bg-gradient-to-r from-verde to-verde-claro"></span></div>
-          <div class="mt-3 flex justify-between text-xs text-[#b3cfc8]"><span>0%</span><span>35%</span><span>100%</span></div>
+          <div class="mt-3 flex justify-between text-xs text-[#c2b6e6]"><span>0%</span><span>35%</span><span>100%</span></div>
         </div>
-        <figcaption class="relative mt-8 text-xs text-[#b3cfc8]">O restante do salário continua livre pras suas contas.</figcaption>
+        <figcaption class="relative mt-8 text-xs text-[#c2b6e6]">O restante do salário continua livre pras suas contas.</figcaption>
       </figure>
     </div>
     <div class="order-1 lg:order-2" data-revelar="120">
@@ -281,9 +300,9 @@
     <div class="absolute -right-24 -top-32 h-96 w-96 rounded-full bg-verde/30 blur-[100px]" aria-hidden="true"></div>
     <div class="absolute -bottom-40 left-10 h-80 w-80 rounded-full bg-verde/10 blur-[90px]" aria-hidden="true"></div>
     <div class="relative grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
-      <div><span class="pilula pilula-escura rotulo">Fale com a gente</span><h2 class="titulo-1 mt-6 max-w-[620px] text-[#f2f7f5]">Ainda com dúvida? <span class="text-verde">Chama a gente.</span></h2></div>
+      <div><span class="pilula pilula-escura rotulo">Fale com a gente</span><h2 class="titulo-1 mt-6 max-w-[620px] text-[#f6f3ff]">Ainda com dúvida? <span class="text-verde">Chama a gente.</span></h2></div>
       <div class="md:justify-self-end">
-        <p class="max-w-[360px] leading-relaxed text-[#c4dbd4]">A gente responde pelo WhatsApp e explica cada parte do contrato antes de você decidir qualquer coisa.</p>
+        <p class="max-w-[360px] leading-relaxed text-[#d2c7ee]">A gente responde pelo WhatsApp e explica cada parte do contrato antes de você decidir qualquer coisa.</p>
         <a href="https://wa.me/554830354419?text=Oi!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20consignado%20CLT." target="_blank" rel="noopener" class="botao botao-verde mt-7">Chamar no WhatsApp <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
@@ -291,7 +310,7 @@
 </section>
 </main>
 
-<footer class="fundo-gradiente bg-noite px-5 pb-28 pt-16 text-[#b3cfc8] md:px-8 md:pb-12">
+<footer class="fundo-gradiente bg-noite px-5 pb-28 pt-16 text-[#c2b6e6] md:px-8 md:pb-12">
   <div class="mx-auto max-w-[1200px]">
     <div class="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
       <div>
@@ -299,7 +318,7 @@
           <svg viewBox="0 0 100 112" class="h-10 w-9" aria-hidden="true"><use href="#pv-mark"/></svg>
           <span class="flex flex-col leading-none"><b class="text-[1.45rem] font-bold tracking-[-0.02em]">Povoas</b><small class="mt-1 pl-px text-[0.55rem] font-medium tracking-[0.42em]">PROMOTORA</small></span>
         </a>
-        <p class="mt-4 text-[#d3e6e0]">O crédito certo para você.</p>
+        <p class="mt-4 text-[#e2daf7]">O crédito certo para você.</p>
       </div>
       <nav aria-label="Rodapé">
         <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm">
@@ -313,10 +332,10 @@
       </nav>
     </div>
     <div class="mt-8 grid gap-4 text-xs leading-relaxed">
-      <p class="text-[#d3e6e0]">POVOAS PROMOTORA LTDA · CNPJ 42.125.273/0001-02<br>R. Nossa Senhora Aparecida, 312, Apt 1104, Bairro Barreiros, São José/SC, CEP 88.117-020<br><a class="inline-block py-3 underline underline-offset-2 hover:text-white" href="tel:+554830354419">(48) 3035-4419</a> · <a class="inline-block py-3 underline underline-offset-2 hover:text-white" href="mailto:dieg0povoas@hotmail.com">dieg0povoas@hotmail.com</a></p>
+      <p class="text-[#e2daf7]">POVOAS PROMOTORA LTDA · CNPJ 42.125.273/0001-02<br>R. Nossa Senhora Aparecida, 312, Apt 1104, Bairro Barreiros, São José/SC, CEP 88.117-020<br><a class="inline-block py-3 underline underline-offset-2 hover:text-white" href="tel:+554830354419">(48) 3035-4419</a> · <a class="inline-block py-3 underline underline-offset-2 hover:text-white" href="mailto:dieg0povoas@hotmail.com">dieg0povoas@hotmail.com</a></p>
       <p>Povoas Promotora · CNPJ 42.125.273/0001-02. Correspondente bancário de [A PREENCHER], nos termos da Resolução CMN nº 4.935/2021. A Povoas Promotora não é banco e não concede crédito: a análise e a aprovação são feitas pela instituição parceira.</p>
       <p>Taxas, prazos e Custo Efetivo Total (CET) dependem da análise de crédito e são informados antes da contratação. [A PREENCHER: faixa de taxa, prazo mínimo e máximo e exemplo de CET.]</p>
-      <p class="text-[#d3e6e0]">A Povoas Promotora não cobra nenhum valor antecipado para liberar crédito. Se alguém pedir depósito em nosso nome, não pague.</p>
+      <p class="text-[#e2daf7]">A Povoas Promotora não cobra nenhum valor antecipado para liberar crédito. Se alguém pedir depósito em nosso nome, não pague.</p>
       <p class="mt-4">© 2026 POVOAS PROMOTORA LTDA</p>
     </div>
   </div>
