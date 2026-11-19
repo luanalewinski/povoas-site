@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.povoaspromotora.com.br" }], "destination": "https://povoaspromotora.com.br/:path*", "permanent": true }
+  ]
+}
